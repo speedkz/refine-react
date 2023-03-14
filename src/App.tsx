@@ -12,6 +12,7 @@ import {
 
 import routerProvider from "@pankod/refine-react-router-v6";
 import dataProvider from "@pankod/refine-simple-rest";
+import { ChakraUIInferencer } from "@pankod/refine-inferencer/chakra-ui";
 
 function App() {
   return (
@@ -25,6 +26,15 @@ function App() {
           Layout={Layout}
           routerProvider={routerProvider}
           dataProvider={dataProvider("https://api.fake-rest.refine.dev")}
+          resources={[
+            {
+              name: "products",
+              list: ChakraUIInferencer,
+              show: ChakraUIInferencer,
+              create: ChakraUIInferencer,
+              edit: ChakraUIInferencer,
+            },
+          ]}
         />
       </ChakraProvider>
     </>
